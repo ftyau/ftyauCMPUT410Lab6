@@ -3,6 +3,9 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.shortcuts import redirect
 
+from main.models import Link
+from main.models import Tag
+
 # Create your views here.
 
 def index(request):
@@ -27,5 +30,5 @@ def add_link(request):
         url = request.POST.get("url", "")
         tags = request.POST.get("tags", "")
         title = request.POST.get("title", "")
-        #TODO: Your code here!
+
     return redirect(index)
