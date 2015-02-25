@@ -21,11 +21,13 @@
             </div><!--
             -->
             <div id="content">
-                <p class="tags">
-                    {% for tag in tags %}
-                    <a href="/bookmarks/tags/{{ tag.name }}/">{{ tag.name }}</a>
-                    {% endfor %}
-                </p>
+                {% for tag in tags %}
+                <div class="link">
+                    <p class="tags">
+                        <a href="/bookmarks/tags/{{ tag.name }}/">{{ tag.name }}</a>
+                    </p>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
