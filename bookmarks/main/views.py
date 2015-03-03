@@ -31,4 +31,15 @@ def add_link(request):
         tags = request.POST.get("tags", "")
         title = request.POST.get("title", "")
 
+        newLink = Link.objects.create(url=url, title=title)
+        tagsList = tags.split(" ")
+        for tag in tagsList:
+            try:
+                newTag = Tag.objects.get(name=tag)
+            except:
+                newTag = Tag.objects.create(name=tag)
+            newLink.tags.add(newTag)
+
+        newLink.save()
+
     return redirect(index)
